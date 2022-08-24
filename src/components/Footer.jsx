@@ -94,7 +94,7 @@ const Title=styled.h3`
     // display:none;
     ${Mobile({
         textAlign:"left",
-        paddingRight:"20px",
+        paddingRight:"10px",
 
     })}
 `;
