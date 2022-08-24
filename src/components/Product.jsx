@@ -1,7 +1,8 @@
 
-import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from '@material-ui/icons';
+import { FavoriteBorderOutlined, FavoriteOutlined, SearchOutlined, ShoppingCartOutlined } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import {useState} from "react";
 const Info=styled.div`
     width:100%;
     height:100%;
@@ -29,6 +30,7 @@ const Container=styled.div`
 
     &:hover ${Info}{
         opacity:1;
+        transform:scale(1.03);
     }
 `;
 const Circle=styled.div`
@@ -37,10 +39,12 @@ const Circle=styled.div`
     border-radius:50%;
     background-color:white;
     position:absolute;
+    
 `;
 const Image=styled.img`
     height:75%;
     z-index:2;
+    
 `;
 
 const Icon=styled.div`
@@ -57,10 +61,21 @@ const Icon=styled.div`
     &:hover{
         background:gray;
         transform:scale(1.2);
-        color:white;
+        // color:white;
     }
 `;
 const Product = ({item}) => {
+    const [color,setColor]=useState("white");
+
+    const changeColor=()=>{
+        if(color==="white"){
+            setColor("red");
+        }
+        else{
+            setColor("white");
+        }
+    }
+
   return (
     <Container>
         <Circle/>
@@ -77,7 +92,9 @@ const Product = ({item}) => {
                 </Link>
             </Icon>
             <Icon>
-                <FavoriteBorderOutlined/>
+                 {  color==="white" ?<FavoriteBorderOutlined onClick={changeColor}/>
+                    :<FavoriteOutlined  color="" onClick={changeColor}/>
+                 }
             </Icon>
         </Info>
     </Container>

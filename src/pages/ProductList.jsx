@@ -71,6 +71,14 @@ const ProductList = () => {
         });
     };
     console.log(filters,sort);
+    const map=new Map();
+    map.set("grocery",0);
+    map.set("mobiles",0);
+    map.set("electronics",0);
+    map.set("home",0);
+    map.set("appliances",0);
+    map.set("babyproduct",0);
+    
 
 
   return (
@@ -79,7 +87,7 @@ const ProductList = () => {
         <Anouncement/>
         <Title style={{textTransform: "uppercase"}}>{saveLocation}</Title>
         <FilterContainer>
-            <Filter>
+            {!map.has(saveLocation) && <Filter>
                 <FilterTxt>Filter Products:</FilterTxt>
                 <Select name='color' onChange={handleFilter}>
                     <Option disabled selected>Color</Option>
@@ -93,6 +101,7 @@ const ProductList = () => {
                     <Option>yellow</Option>
                     <Option>brown</Option>
                 </Select>
+                
                 <Select name='size' onChange={handleFilter}>
                     <Option disabled selected>Size</Option>
                     <Option>XXS</Option>
@@ -104,6 +113,7 @@ const ProductList = () => {
                     <Option>XXL</Option>
                 </Select>
             </Filter>
+            }
             <Filter>
                 <FilterTxt>Sort Products:</FilterTxt>
                 <Select onChange={(e)=>setSort(e.target.value)}>

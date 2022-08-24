@@ -4,7 +4,7 @@ import { Badge } from "@material-ui/core";
 import React from 'react'
 import styled from 'styled-components';
 import { Mobile } from '../pages/Responsive';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate,useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from '../redux/userSlice';
 import { deleteAllProducts } from '../redux/ReduxCart';
@@ -127,7 +127,9 @@ font-size:12px;
 `;
 
 const Navbar = () => {
-    const address="/products/";
+    let address="/products/";
+    let location="";
+    let navigate=useNavigate();
     const quantity=useSelector(state=>state.cart.quantity);
     let user = useSelector((state) => state.user.currentUser);
     const dispatch=useDispatch();
@@ -135,14 +137,21 @@ const Navbar = () => {
         dispatch(logout());
         // dispatch(deleteAllProducts());
     }
+    const handleSearch=()=>{
+        console.log(location);
+        location !== "" && navigate(address+location);
+
+    }
+    
   return (
     <Container>
         <LeftMobile>
                 <Language>ENG</Language>
                 <SearchContainer>
-                    <Inputs placeholder='Search products category and more' />
+                    <Inputs placeholder='Search products category and more' 
+                    onChange={(e)=>{location=e.target.value;  console.log(location)}} />
 
-                    <Search style={{fontSize:"15px", cursor:"pointer"}} />
+                    <Search style={{fontSize:"15px", cursor:"pointer"}}  onClick={handleSearch}/>
                 </SearchContainer>
             </LeftMobile>
         <Wrapper>
@@ -152,8 +161,9 @@ const Navbar = () => {
             <Left>
                 {/* <Language>ENG</Language> */}
                 <SearchContainer>
-                    <Inputs placeholder='Search for products category and more'/>
-                    <Search style={{fontSize:"25px", cursor:"pointer"}} />
+                    <Inputs placeholder='Search for products category and more'
+                    onChange={(e)=>{location=e.target.value;  console.log(location)}} />
+                    <Search style={{fontSize:"25px", cursor:"pointer"}} onClick={handleSearch} />
                 </SearchContainer>
             </Left>
             

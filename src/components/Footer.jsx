@@ -2,6 +2,7 @@ import { Email, Facebook, Instagram, LinkedIn, LocationOn, Phone, Telegram, Twit
 import React from 'react'
 import styled from 'styled-components';
 import { Mobile } from '../pages/Responsive';
+import { useNavigate } from 'react-router-dom';
 const Container=styled.div`
     display:flex;
     background-color:#FFF8F3;
@@ -89,7 +90,7 @@ const Icons=styled.div`
     })}
 `;
 const Title=styled.h3`
-    text-align:left;
+    padding-right:80px;
     // display:none;
     ${Mobile({
         textAlign:"left"
@@ -148,6 +149,7 @@ ${Mobile({
 })}
 `;
 const Payment = styled.img`
+    margin-top:15px;
     width: 50%;
     ${Mobile({
         display:"flex",
@@ -156,6 +158,7 @@ const Payment = styled.img`
     })}
 `;
 const Footer = () => {
+    let navigate=useNavigate();
   return (
     <Container>
         <Left>
@@ -166,16 +169,16 @@ const Footer = () => {
             <Title >Quick Links</Title>
             <LinksContainer>
             <Links>
-                <Link><Link to={"/carts"}> Cart</Link></Link>
-                <Link>Your Orders</Link>
+                <Link onClick={()=>{navigate("/carts")}}> Cart</Link>
+                <Link>My Orders</Link>
                 <Link>My Wishlist</Link>
-                <Link>My Accounts</Link>
+                <Link>My Account</Link>
             </Links>
-            <Links>
-                <Link> Home</Link>
-                <Link>Men Fashions</Link>
-                <Link>Women Fashions</Link>
-                <Link>Home Accessaries</Link>
+            <Links styled={{textAlign:"right"}}>
+                <Link onClick={()=>{navigate("/")}}> Home</Link>
+                <Link onClick={()=>{navigate("/products/men")}}>Men Fashions</Link>
+                <Link onClick={()=>{navigate("/products/women")}}>Women Fashions</Link>
+                <Link onClick={()=>{navigate("/products/home")}}>Home Accessaries</Link>
             </Links>
             </LinksContainer>
             <SocialIcons>
@@ -185,9 +188,11 @@ const Footer = () => {
                 <Icons style={{backgroundColor:"#1DA1F2"}}>
                     <Twitter style={{color:"white"}}/>
                 </Icons>
-                <Icons style={{backgroundColor:"#0A66C2"}}>
-                    <LinkedIn style={{color:"white"}}/>
-                </Icons>
+                <a href="https://www.linkedin.com/in/ashish-biswas" target="_blank">
+                    <Icons style={{backgroundColor:"#0A66C2"}}>
+                        <LinkedIn style={{color:"white"}}/>
+                    </Icons>
+                </a>
                 <Icons style={{backgroundColor:"#C13584"}}>
                     <Instagram style={{color:"white"}}/>
                 </Icons>
@@ -200,15 +205,15 @@ const Footer = () => {
             <Contacts>
                 <Txt>
                     <Box><LocationOn /></Box>
-                    Ranaghat-741202, Nadia, West Bengal, India.
+                    Current status: Kolkata, West Bengal, India.
                 </Txt>
                 <Txt>
                 <Box><Email /></Box>
-                    nextfashions@gmail.com
+                    ashishbiswasg@gmail.com
                 </Txt>
                 <Txt>
                 <Box><Phone/></Box>
-                    +91 123 456 1578
+                    +91 123 456 7890
                 </Txt>
                 <Txt>
                 <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />

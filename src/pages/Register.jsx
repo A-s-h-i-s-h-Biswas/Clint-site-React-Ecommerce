@@ -15,7 +15,7 @@ const Container=styled.div`
     background: linear-gradient(
         rgba(255,255,255,0.5),
         rgba(255,255,255,0.5)
-    ),url("https://cdn.pixabay.com/photo/2015/01/15/13/06/woman-600238__340.jpg");
+    ),url("https://cdn.pixabay.com/photo/2016/07/08/08/59/background-1503863_960_720.png");
     background-size:cover;
     object-fit:cover;
     background-repeat:no-repeat;

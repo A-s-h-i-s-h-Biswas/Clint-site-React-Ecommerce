@@ -350,7 +350,19 @@ const Carts = () => {
                     <Txt style={{justifyContent:"space-between",fontSize:"15px"}}>Estimated Charge:<Text style={{fontSize:"15px"}}>Rs.+149.00</Text></Txt>
                     <Txt style={{justifyContent:"space-between",fontSize:"15px"}}>Shopping Discount:<Text style={{fontSize:"15px"}}>Rs.-149.00</Text></Txt>
                     <Txt style={{justifyContent:"space-between",fontSize:"15px"}}>Total:<Text style={{fontSize:"17px"}} >Rs.{cart.total}.00</Text></Txt>
-                    <Buttons style={{justifyContent:"center",width:"99.9%",backgroundColor:"black",color:"white"}}>BUY NOW</Buttons>
+                    <StripeCheckout
+                        name="NextFashions"
+                        image="https://avatars.githubusercontent.com/u/107340046?v=4"
+                        billingAddress
+                        shippingAddress
+                        description={`Your total is Rs.${cart.total}`}
+                        currency="inr"
+                        amount={cart.total*100}
+                        token={onToken}
+                        stripeKey={KEY}
+                    >
+                        <Buttons style={{justifyContent:"center",width:"99.9%",backgroundColor:"black",color:"white"}}>BUY NOW</Buttons>
+                    </StripeCheckout>
                 </SummaryMobile>
                 </Products>
                 <Summary>

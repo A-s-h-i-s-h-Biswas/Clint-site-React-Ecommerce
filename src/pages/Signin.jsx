@@ -13,7 +13,7 @@ const Container=styled.div`
     background: linear-gradient(
         rgba(255,255,255,0.5),
         rgba(255,255,255,0.5)
-    ),url("https://cdn.pixabay.com/photo/2017/05/13/12/40/fashion-2309519__340.jpg");
+    ),url("https://cdn.pixabay.com/photo/2018/02/12/09/39/background-3147808_960_720.jpg");
     background-repeat:no-repeat;
     background-size:cover;
     display:flex;

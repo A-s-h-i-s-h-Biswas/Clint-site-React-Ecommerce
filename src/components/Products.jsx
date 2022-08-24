@@ -17,8 +17,8 @@ const Title=styled.p`
     letter-spacing:1.3px;
     text-align:center;
 `;
-const PC=styled.div``;
-const Products = ({saveLocation,filters,sort}) => {
+  const PC=styled.div``;
+  const Products = ({saveLocation,filters,sort}) => {
   const [products,setProducts]=useState([]);
   const [filterproducts,setFilterproducts]=useState([]);
 
