@@ -149,7 +149,7 @@ const Navbar = () => {
                 <Language>ENG</Language>
                 <SearchContainer>
                     <Inputs placeholder='Search products category and more' 
-                    onChange={(e)=>{location=e.target.value;  console.log(location)}} />
+                    onChange={(e)=>{location=e.target.value.toLowerCase();  console.log(location)}} />
 
                     <Search style={{fontSize:"15px", cursor:"pointer"}}  onClick={handleSearch}/>
                 </SearchContainer>
@@ -162,7 +162,7 @@ const Navbar = () => {
                 {/* <Language>ENG</Language> */}
                 <SearchContainer>
                     <Inputs placeholder='Search for products category and more'
-                    onChange={(e)=>{location=e.target.value;  console.log(location)}} />
+                    onChange={(e)=>{location=e.target.value.toLowerCase();  console.log(location)}} />
                     <Search style={{fontSize:"25px", cursor:"pointer"}} onClick={handleSearch} />
                 </SearchContainer>
             </Left>

@@ -93,7 +93,9 @@ const Title=styled.h3`
     padding-right:80px;
     // display:none;
     ${Mobile({
-        textAlign:"left"
+        textAlign:"left",
+        paddingRight:"20px",
+
     })}
 `;
 const Links=styled.div`
