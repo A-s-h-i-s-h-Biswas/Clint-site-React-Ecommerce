@@ -34,6 +34,11 @@ const Item=styled.div`
     flex-direction:column;
     justify-content:center;
     display:flex;
+    &:hover{
+        transform:scale(1.02);
+        opacity:0.5;
+        transition:all .5s ease; 
+    }
 `;
 const Img=styled.img`
     width:60px;
