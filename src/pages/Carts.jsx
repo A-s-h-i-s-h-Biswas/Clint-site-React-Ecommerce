@@ -242,6 +242,7 @@ const Carts = () => {
     const user = useSelector((state) => state.user.currentUser);
     const cart=useSelector(state=>state.cart);
     const [quantity,setQuantity]=useState(0);
+    const all="all";
     const dispatch=useDispatch();
     const navigate = useNavigate();
     const [stripeToken, setStripeToken] = useState(null);
@@ -394,7 +395,7 @@ const Carts = () => {
                 { user ?
                 <div>
                     <Text>Opps! Your Cart is Empty <br/> <p style={{fontSize:"15px"}}>Continue shopping and add your favourite products into the cart.</p></Text>
-                    <Link to={`/produtcs/:${all}`}><Buttons style={{backgroundColor:"orange", border:"none", color:"white"}}>Continue Shopping</Buttons></Link>
+                    <Link to={`/produtcs/${all}`}><Buttons style={{backgroundColor:"orange", border:"none", color:"white"}}>Continue Shopping</Buttons></Link>
                  </div>
                 : <div>
                     <Text>Missing Your Cart items?</Text>
