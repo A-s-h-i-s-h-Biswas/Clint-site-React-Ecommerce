@@ -20,6 +20,7 @@ dotenv.config();
 // const KEY = process.env.STRIPE_KEY_P;
 
 const Container=styled.div`
+
 ${Mobile({
 
     width:"100vw",
@@ -45,7 +46,7 @@ const TopContainer=styled.div`
     justify-content:space-between;
     background-color:#9ED2C6;
     ${Mobile({
-        padding:"10px",
+        padding:"9px",
         width:"95vw"
     })}
 `;
@@ -242,7 +243,7 @@ const Carts = () => {
     const user = useSelector((state) => state.user.currentUser);
     const cart=useSelector(state=>state.cart);
     const [quantity,setQuantity]=useState(0);
-    const all="all";
+    const all="fashions";
     const dispatch=useDispatch();
     const navigate = useNavigate();
     const [stripeToken, setStripeToken] = useState(null);
@@ -290,7 +291,7 @@ const Carts = () => {
   return (
     <Container>
         <Navbar/>
-        <Anouncement/>
+        {/* <Anouncement/> */}
         { user && cart.quantity>0 ? <Wrapper>
             <Title>YOUR BAG</Title>
             <TopContainer>
@@ -395,7 +396,7 @@ const Carts = () => {
                 { user ?
                 <div>
                     <Text>Opps! Your Cart is Empty <br/> <p style={{fontSize:"15px"}}>Continue shopping and add your favourite products into the cart.</p></Text>
-                    <Link to={`/produtcs/${all}`}><Buttons style={{backgroundColor:"orange", border:"none", color:"white"}}>Continue Shopping</Buttons></Link>
+                    <Link to={`/products/${all}`}><Buttons style={{backgroundColor:"orange", border:"none", color:"white"}}>Continue Shopping</Buttons></Link>
                  </div>
                 : <div>
                     <Text>Missing Your Cart items?</Text>
@@ -404,6 +405,7 @@ const Carts = () => {
                 }
             </Text>
         }
+        <div style={{width:"100%", height:"15px"}}/>
         <Footer/>
     </Container>
   )

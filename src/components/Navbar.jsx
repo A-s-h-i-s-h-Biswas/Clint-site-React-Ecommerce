@@ -13,7 +13,7 @@ import { useState } from 'react';
 
 const Container=styled.div`
     height:57px;
-    
+    background-color:#D61C4E;
     ${Mobile({
         width:"100vw",
         height:"70px",
@@ -83,7 +83,7 @@ const SearchContainer=styled.div`
     // margin-left:20px;
     width:30vw;
     height:30px;
-    // background-color:gray;
+    background-color:white;
     border:0.5px solid lightgray;
     display:flex;
     align-items:center;
@@ -156,7 +156,7 @@ const Navbar = () => {
             </LeftMobile>
         <Wrapper>
             <Center>
-                <Link to={"/"} style={{textDecoration:"none", color:"black",fontFamily: 'Lobster',color:"#59A3C9"}}> NextFashions.</Link>
+                <Link to={"/"} style={{textDecoration:"none", color:"black",fontFamily: 'Lobster',color:"white"}}> NextFashions.</Link>
             </Center>
             <Left>
                 {/* <Language>ENG</Language> */}
@@ -169,10 +169,10 @@ const Navbar = () => {
             
             <Right>
                 {/* {!user && <MenuLinks><Link to={"/register"} style={{textDecoration:"none", color:"black"}}> REGISTER</Link> </MenuLinks>} */}
-                {!user && <MenuLinks><Link to={"/login"} style={{textDecoration:"none", color:"black"}}> Signin</Link></MenuLinks>}
-                {user && <MenuLinks onClick={handleLogout}> Logout</MenuLinks>}
+                {!user && <MenuLinks><Link to={"/login"} style={{textDecoration:"none", color:"white"}}> Signin</Link></MenuLinks>}
+                {user && <MenuLinks onClick={handleLogout} style={{color:"white"}}> Logout</MenuLinks>}
                 <MenuLinks>
-                    <Link to={"/carts"} style={{textDecoration:"none", color:"black"}}>
+                    <Link to={"/carts"} style={{textDecoration:"none", color:"white"}}>
                         <Badge badgeContent={ user ? quantity : 0} color="primary" >
                             <ShoppingCartOutlined/>
                         </Badge ><Text>Cart</Text>

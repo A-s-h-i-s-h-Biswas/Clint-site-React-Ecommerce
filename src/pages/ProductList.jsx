@@ -10,6 +10,7 @@ import { useLocation } from 'react-router-dom';
 
 
 const Container=styled.div`
+    background-color:rgba(128,128,128,.1);
     ${Mobile({
         width:"100vw",
     })}
@@ -17,6 +18,9 @@ const Container=styled.div`
 const FilterContainer=styled.div`
     display:flex;
     justify-content:space-between;
+    background-color:white;
+    // width:98.7%;
+    // margin-left:18px;
 `;
 const Filter=styled.div`
     display:flex;
@@ -27,7 +31,8 @@ const Filter=styled.div`
     })}
 `;
 const Title=styled.h1`
-    margin:20px;
+    padding-left:20px;
+    background-color:white;
     ${Mobile({
         fontSize:"25px",
         textAlign:"center"
@@ -72,11 +77,11 @@ const ProductList = () => {
     };
     console.log(filters,sort);
     const map=new Map();
-    map.set("grocery",0);
-    map.set("mobiles",0);
-    map.set("electronics",0);
-    map.set("home",0);
-    map.set("appliances",0);
+    map.set("shirts",0);
+    map.set("shirt",0);
+    map.set("tshirt",0);
+    map.set("tshirts",0);
+    map.set("sports",0);
     map.set("babyproduct",0);
     
 
@@ -84,10 +89,10 @@ const ProductList = () => {
   return (
     <Container>
         <Navbar/>
-        <Anouncement/>
+        {/* <Anouncement/> */}
         <Title style={{textTransform: "uppercase"}}>{saveLocation}</Title>
         <FilterContainer>
-            {!map.has(saveLocation) && <Filter>
+            <Filter>
                 <FilterTxt>Filter Products:</FilterTxt>
                 <Select name='color' onChange={handleFilter}>
                     <Option disabled selected>Color</Option>
@@ -102,7 +107,7 @@ const ProductList = () => {
                     <Option>brown</Option>
                 </Select>
                 
-                <Select name='size' onChange={handleFilter}>
+                {map.has(saveLocation) && <Select name='size' onChange={handleFilter}>
                     <Option disabled selected>Size</Option>
                     <Option>XXS</Option>
                     <Option>XS</Option>
@@ -112,8 +117,9 @@ const ProductList = () => {
                     <Option>XL</Option>
                     <Option>XXL</Option>
                 </Select>
+                }
             </Filter>
-            }
+        
             <Filter>
                 <FilterTxt>Sort Products:</FilterTxt>
                 <Select onChange={(e)=>setSort(e.target.value)}>
@@ -124,7 +130,9 @@ const ProductList = () => {
                 </Select>
             </Filter>
         </FilterContainer>
+        <div style={{width:"100%", height:"15px"}}/>
         <Products saveLocation={saveLocation} filters={filters} sort={sort}/>
+        <div style={{width:"100%", height:"15px"}}/>
         <Newsletter/>
         <Footer/>
     </Container>

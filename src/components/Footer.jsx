@@ -6,11 +6,14 @@ import { useNavigate } from 'react-router-dom';
 const Container=styled.div`
     display:flex;
     background-color:#FFF8F3;
+    width:98.7%;
+    margin-left:18px;
     ${Mobile({
         flexDirection:"column",
         padding:"10px 0",
         width:"100vw",
-        height:"300px"
+        height:"300px",
+        marginLeft:"0"
     })}
 `;
 const Left=styled.div`

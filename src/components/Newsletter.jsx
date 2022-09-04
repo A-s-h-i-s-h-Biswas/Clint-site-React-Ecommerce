@@ -10,7 +10,11 @@ const Container=styled.div`
     flex-direction:column;
     align-items:center;
     justify-content:center;
+    width:98.7%;
+    margin-left:18px;
     ${Mobile({
+        width:"100%",
+        marginLeft:"0",
         height:"200px"
     })}
 `;

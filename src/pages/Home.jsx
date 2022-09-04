@@ -6,18 +6,30 @@ import Products from '../components/Products';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 import Category from '../components/Category';
+import styled from 'styled-components';
+import PopularProducts from '../components/Popularproducts';
 const Home = () => {
+
+  const Container=styled.div`
+      background-color:rgba(128,128,128,.1);
+      // opacity:.3;
+  `
   return (
-    <div>
-        <Anouncement/>
+    <Container >
+        {/* <Anouncement/> */}
         <Navbar/>
-        <div style={{width:"100%", height:"15px",backgroundColor:"#EEF2FF"}}/>
+        
         <Category/>
+        <div style={{width:"100%", height:"15px"}}/>
         <Sliders/>
+        <div style={{width:"100%", height:"15px"}}/>
+        <PopularProducts/>
+        <div style={{width:"100%", height:"15px"}}/>
         <Products/>
+        <div style={{width:"100%", height:"15px"}}/>
         <Newsletter/>
         <Footer/>
-    </div>
+    </Container>
   )
 }
 

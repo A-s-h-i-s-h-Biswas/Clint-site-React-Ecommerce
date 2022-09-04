@@ -13,19 +13,26 @@ import { useDispatch, useSelector } from 'react-redux';
 import { apiRequest } from './configAxios';
 
 const Container=styled.div`
+    background-color:rgba(128,128,128,.1);
     ${Mobile({
+        // paddingLeft:"20px",
         width:"100vw",
         
     })}
 `;
 const SingleItem=styled.div`
     display:flex;
-    padding:20px;
+    // padding:20px;
     height:70vh;
+    background-color:white;
+    width:98.7%;
+    margin-left:18px;
     ${Mobile({
         flexDirection:"column",
-        // padding:"0",
-        height:"100%"
+        paddingLeft:"13px",
+        marginLeft:"0",
+        height:"100%",
+        width:"96.5vw",
     })}
 `;
 const ImageContainer=styled.div`
@@ -37,10 +44,13 @@ const ImageContainer=styled.div`
     })}
 `;
 const Image=styled.img`
+    
     margin-left:50px;
     width:60%;
     height:70vh;
     ${Mobile({
+        paddingTop:"20px",
+        // paddingLeft:"0px",
         width:"300px",
         height:"250px",
         marginLeft:"25px"
@@ -55,7 +65,7 @@ const InfoContainer=styled.div`
         width:"80vw",
         heigth:"200px",
         margin:"0",
-        padding:"10px 25px"
+        padding:"20px 25px"
     })}
 `;
 const Title=styled.h1`
@@ -288,6 +298,7 @@ const Product = () => {
     <Container>
         <Navbar/>
         <Anouncement/>
+        <div style={{width:"100%", height:"15px"}}/>
         <SingleItem>
             <ImageContainer>
                 <Image src={product.img}/>
@@ -331,7 +342,7 @@ const Product = () => {
             </InfoContainer>
         </SingleItem>
 
-        
+        <div style={{width:"100%", height:"15px"}}/>
         <Footer/>
     </Container>
   )

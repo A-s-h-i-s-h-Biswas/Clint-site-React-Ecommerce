@@ -7,10 +7,19 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { apiRequest } from '../pages/configAxios';
 const Container=styled.div`
-    padding:20px;
+    // padding:20px;
     display:flex;
     flex-wrap:wrap;
     justify-content:space-between;
+    background-color:white;
+    width:98.7%;
+    margin-left:18px;
+    
+    ${Mobile({
+      width:"92.9%",
+      marginLeft:"0",
+      paddingLeft:"27px"
+    })}
 `;
 const Title=styled.p`
     font-size:18px;
@@ -71,7 +80,7 @@ useEffect(() => {
         saveLocation ? 
         filterproducts.map((item) => <Product item={item} key={item.id} />)
         : products
-            .slice(0, 8)
+            .slice(0, 12)
             .map((item) => <Product item={item} key={item.id} />)
       }
     </Container>

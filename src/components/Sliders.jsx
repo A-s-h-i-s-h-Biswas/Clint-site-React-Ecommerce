@@ -5,15 +5,20 @@ import { SlideItems } from '../pages/data';
 import { useState } from 'react';
 import { Mobile } from '../pages/Responsive';
 import { Link } from 'react-router-dom';
+
 const Container=styled.div`
-    width:100%;
-    height:70vh;
+    width:98.7%;
+    height:40vh;
     display:flex;
     overflow:hidden;
     position:relative;
+    // margin-left:13px;
+    margin-left:18px;
+    
     ${Mobile({
+        marginLeft:"0",
         width:"100vw",
-        height:"250px",
+        height:"150px",
     })}
 `;
 const Arrow=styled.div`
@@ -38,9 +43,14 @@ const Arrow=styled.div`
         width:"20px",
         height:"20px"
     })}
+    &:hover{
+        background-color:black;
+        opacity:1;
+        transition:all .5s ease; 
+    }
 `;
 const Wrapper=styled.div`
-    height:100%;
+    height:250px;
     display:flex;
     
     // padding-top:10px;
@@ -58,25 +68,26 @@ const Slide=styled.div`
     align-items:center;
     ${Mobile({
         justifyContent:"center",
-        height:"250px"
+        height:"150px"
     })}
 `;
 const ImgContainer=styled.div`
     flex:1;
-    height:70vh;
-    margin-top:35px;
+    height:40vh;
+    // margin-top:35px;
     ${Mobile({
-        height:"250px",
+        height:"150px",
         padingTop:"30px",
         marginLeft:"0px"
     })}
 `;
 const Image=styled.img`
-    height:90%;
-    margin-left:180px;
+    height:100%;
+    width:100%;
+    // margin-left:180px;
     ${Mobile({
-        marginLeft:"0",
-        height:"200px",
+        // marginLeft:"25px",
+        height:"150px",
         objectFit:"cover",
         flex:1
     })}
@@ -86,7 +97,7 @@ const InfoContainer=styled.div`
     // height:90%;
     padding-right:100px;
     ${Mobile({
-        padding:"0 30px 0 10px",
+        padding:"0 10px 0 10px",
         flex:2,
         marginBotton:"25px"
     })}
@@ -144,15 +155,16 @@ const Sliders=()=> {
         </Arrow>
         <Wrapper slideIndx={slideIndx}>
             {SlideItems.map((item)=>(
-                <Slide style={{backgroundColor:item.bg}}>
+                /* here you can add bg color to banner style*/ 
+                <Slide >
                 <ImgContainer>
-                    <Image src={item.img}/>
+                <Link to={`/products/fashions`}><Image src={item.img}/></Link>
                 </ImgContainer>
-                <InfoContainer>
+                {/* <InfoContainer>
                     <Title>{item.title}</Title>
-                    <Desc> {item.desc}</Desc>
-                    <Button><Link to={`/products/offers`} style={{textDecoration:"none", color:"black"}}>SHOP NOW</Link></Button>
-                </InfoContainer>
+                    {/* <Desc> {item.desc}</Desc> */}
+                    {/* <Button><Link to={`/products/offers`} style={{textDecoration:"none", color:"black"}}>SHOP NOW</Link></Button> */}
+                {/* </InfoContainer> */}
                 </Slide>
             ))}
         </Wrapper>

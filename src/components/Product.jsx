@@ -3,6 +3,7 @@ import { FavoriteBorderOutlined, FavoriteOutlined, SearchOutlined, ShoppingCartO
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import {useState} from "react";
+import { Mobile } from '../pages/Responsive';
 const Info=styled.div`
     width:100%;
     height:100%;
@@ -21,7 +22,8 @@ const Container=styled.div`
     flex:1;
     margin:10px;
     min-width:280px;
-    height:350px;
+    max-width:100px;
+    height:300px;
     background-color:#FFF8F3;
     display:flex;
     align-items:center;
@@ -30,8 +32,15 @@ const Container=styled.div`
 
     &:hover ${Info}{
         opacity:1;
-        transform:scale(1.03);
+        transform:scale(1.01);
     }
+    ${Mobile({
+        justifyContent:"center",
+        alignItems:"center",
+        maxWidth:"300px",
+        // minWidth:"320px",
+        
+    })}
 `;
 const Circle=styled.div`
     width:200px;
@@ -42,9 +51,13 @@ const Circle=styled.div`
     
 `;
 const Image=styled.img`
-    height:75%;
+    height:82%;
+    width:75%;
     z-index:2;
-    
+    ${Mobile({
+        width:"60%",
+        height:"80%",
+    })}
 `;
 
 const Icon=styled.div`
