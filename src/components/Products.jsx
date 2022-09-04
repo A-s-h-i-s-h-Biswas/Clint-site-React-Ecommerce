@@ -18,7 +18,7 @@ const Container=styled.div`
     ${Mobile({
       width:"92.9%",
       marginLeft:"0",
-      paddingLeft:"23px"
+      paddingLeft:"20px"
     })}
 `;
 const Title=styled.p`
